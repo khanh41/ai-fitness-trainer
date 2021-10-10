@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi import Request
@@ -12,16 +11,19 @@ from starlette.responses import HTMLResponse, StreamingResponse
 
 from app.api.errors.http_error import http_error_handler
 from app.api.errors.validation_error import http422_error_handler
+from app.api.helpers.download import download_video_template
 from app.core.config import ALLOWED_HOSTS, API_PREFIX, DEBUG, PROJECT_NAME, VERSION
+from app.core.constant import VIDEO_TEMPLATE
 
 HOST = os.getenv("APP_HOST")
 PORT = os.getenv("APP_PORT")
 CHUNK_SIZE = 1024 * 1024
-video_path = Path("video.mp4")
 
 
 def get_application() -> FastAPI:
     from app.api.routes.api import app as api_router
+
+    download_video_template()
 
     application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
     print()
@@ -53,7 +55,7 @@ def get_application() -> FastAPI:
     @application.get("/video")
     async def video_endpoint():
         def iterfile():
-            with open(video_path, mode="rb") as file_like:
+            with open(VIDEO_TEMPLATE["path"], mode="rb") as file_like:
                 yield from file_like
 
         return StreamingResponse(iterfile(), media_type="video/mp4")
