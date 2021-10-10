@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "fastapi-keiba-app"
+name = "fastapi-gym-trainer-app"
 version = "0.0.0"
-description = "Base code fastapi"
-authors = ["BAP"]
-license = "BAP"
+description = "Gym Trainer"
+authors = ["Pluto"]
+license = "Pluto"
 
 [tool.poetry.dependencies]
 python = "^3.7.1"
@@ -13,15 +13,13 @@ python-slugify = "^4.0"
 Unidecode = "^1.1"
 loguru = "^0.5.1"
 pymongo = "^3.11.4"
-pandas = "^1.2.4"
-joblib = "^1.0.1"
 category-encoders = "^2.2.2"
 python-multipart = "^0.0.5"
 Jinja2 = "^3.0.0"
 aiofiles = "^0.6.0"
-gdown = "^3.13.0"
 PyYAML = "^5.4.1"
 python-dotenv = "^0.17.1"
+wget = "^3.2"
 
 [tool.poetry.dev-dependencies]
 black = "^20.8b1"

@@ -6,7 +6,7 @@ import pymongo
 
 # Connect mongodb - save data tracking and predict
 client = pymongo.MongoClient(os.getenv("MONGO_DETAILS"))
-database = client.keiba_db
+database = client.gym_trainer_db
 race_collection = database.get_collection("race")
 horse_collection = database.get_collection("horses")
 predict_collection = database.get_collection("predict")
