@@ -1,4 +1,4 @@
-# Gym Trainer
+# AI Fitness Trainer - AIFT
 
 ## Installation ⚡️
 ### Requires

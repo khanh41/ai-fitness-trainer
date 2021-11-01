@@ -2,7 +2,7 @@ import logging
 import logging.handlers
 from logging.config import dictConfig
 
-# logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 DEFAULT_LOGGING = {
     'version': 1,
@@ -20,7 +20,7 @@ def configure_logging(name):
     This function does:
  
     - Assign INFO and DEBUG level to logger file handler and console handler
- 
+
     """
     logger = logging.getLogger(name)
 
