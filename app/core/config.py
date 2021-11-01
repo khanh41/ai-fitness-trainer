@@ -19,7 +19,7 @@ config = Config(".env")
 
 DEBUG: bool = config("DEBUG", cast=bool, default=False)
 
-PROJECT_NAME: str = config("GYM-TRAINER", default="Gym trainer application")
+PROJECT_NAME: str = config("AI-FITNESS-TRAINER", default="AI Fitness Trainer application")
 ALLOWED_HOSTS: List[str] = config(
     "ALLOWED_HOSTS",
     cast=CommaSeparatedStrings,

@@ -2,11 +2,12 @@ import os
 
 import pymongo
 
-# Connect mysql to read db from server - tracking
-
-# Connect mongodb - save data tracking and predict
 client = pymongo.MongoClient(os.getenv("MONGO_DETAILS"))
 database = client.gym_trainer_db
-race_collection = database.get_collection("race")
-horse_collection = database.get_collection("horses")
-predict_collection = database.get_collection("predict")
+
+exercise_collection = database.get_collection("exercise")
+exercise_process_collection = database.get_collection("exercise_process")
+exercise_trainer_collection = database.get_collection("exercise_trainer")
+user_collection = database.get_collection("user")
+user_exercise_collection = database.get_collection("user_exercise")
+user_information_collection = database.get_collection("user_information")

@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "fastapi-gym-trainer-app"
+name = "ai-fitness-trainer-backend"
 version = "0.0.0"
-description = "Gym Trainer"
-authors = ["Pluto"]
-license = "Pluto"
+description = "AI Fitness Trainer"
+authors = ["Khánh Pluto"]
+license = "Khánh Pluto"
 
 [tool.poetry.dependencies]
 python = "^3.7.1"
