@@ -1,15 +1,14 @@
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
 
 class ExerciseTrainerSchema(BaseModel):
-    id: str = Field(...)
     exerciseId: str = Field(...)
     modelUrl: str = Field(...)
     angleConfig: List = Field(...)
-    creatAt: str = Field(...)
-    updateAt: str = Field(...)
+    createAt: Optional[str] = None
+    updateAt: Optional[str] = None
 
     class Config:
         schema_extra = {
@@ -17,7 +16,5 @@ class ExerciseTrainerSchema(BaseModel):
                 "exerciseId": "1233",
                 "modelUrl": "example.com",
                 "angleConfig": [1, 2, 3],
-                "creatAt": "",
-                "updateAt": "",
             }
         }

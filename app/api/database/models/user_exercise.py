@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel, Field
 
 
@@ -6,8 +8,8 @@ class UserExerciseSchema(BaseModel):
     exerciseId: str = Field(...)
     process: int = Field(...)
     numStreak: int = Field(...)
-    creatAt: str = Field(...)
-    updateAt: str = Field(...)
+    createAt: Optional[str] = None
+    updateAt: Optional[str] = None
 
     class Config:
         schema_extra = {
@@ -16,7 +18,5 @@ class UserExerciseSchema(BaseModel):
                 "exerciseId": "1233",
                 "process": 80,
                 "numStreak": 5,
-                "creatAt": "",
-                "updateAt": "",
             }
         }

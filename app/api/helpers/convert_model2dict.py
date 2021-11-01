@@ -1,52 +1,52 @@
 def exercise_helper(data) -> dict:
     return {
-        "exerciseId": data["exerciseId"],
+        "id": str(data["_id"]),
         "name": data["name"],
         "level": data["level"],
         "rating": data["rating"],
-        "creatAt": data["creatAt"],
+        "createAt": data["createAt"],
         "updateAt": data["updateAt"],
     }
 
 
 def user_information_helper(data) -> dict:
     return {
-        "userId": data["userId"],
+        "id": str(data["_id"]),
         "name": data["timePredict"],
         "phoneNumber": data["phoneNumber"],
         "weight": data["weight"],
-        "creatAt": data["creatAt"],
+        "createAt": data["createAt"],
         "updateAt": data["updateAt"],
     }
 
 
 def user_exercise_helper(data) -> dict:
     return {
-        "userId": data["userId"],
+        "id": str(data["_id"]),
         "exerciseId": data["exerciseId"],
         "process": data["process"],
         "numStreak": data["numStreak"],
-        "creatAt": data["creatAt"],
+        "createAt": data["createAt"],
         "updateAt": data["updateAt"],
     }
 
 
 def user_helper(data) -> dict:
     return {
-        "userId": data["userId"],
+        "id": str(data["_id"]),
         "email": data["email"],
         "password": data["password"],
         "role": data["role"],
-        "creatAt": data["creatAt"],
+        "createAt": data["createAt"],
         "updateAt": data["updateAt"],
     }
 
 
 def exercise_trainer_helper(data) -> dict:
     return {
-        "exerciseId": data["exerciseId"],
+        "id": str(data["_id"]),
         "modelUrl": data["modelUrl"],
         "angleConfig": data["angleConfig"],
-        "creatAt": data["creatAt"],
+        "createAt": data["createAt"],
         "updateAt": data["updateAt"],
     }

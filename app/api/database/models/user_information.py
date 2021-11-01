@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel, Field
 
 
@@ -8,8 +10,8 @@ class UserInformationSchema(BaseModel):
     weight: float = Field(...)
     height: float = Field(...)
     age: int = Field(...)
-    creatAt: str = Field(...)
-    updateAt: str = Field(...)
+    createAt: Optional[str] = None
+    updateAt: Optional[str] = None
 
     class Config:
         schema_extra = {
@@ -19,7 +21,5 @@ class UserInformationSchema(BaseModel):
                 "phoneNumber": "0123456789",
                 "weight": 42.5,
                 "height": 162,
-                "creatAt": "",
-                "updateAt": "",
             }
         }
