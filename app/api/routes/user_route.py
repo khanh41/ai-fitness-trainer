@@ -4,6 +4,7 @@ from fastapi.encoders import jsonable_encoder
 from app.api.database.execute.user import user_execute as execute
 from app.api.database.models.user import UserSchema
 from app.api.responses.base import response
+from app.api.services.authentication_service import authentication_service
 from app.logger.logger import configure_logging
 
 logger = configure_logging(__name__)
@@ -13,6 +14,7 @@ router = APIRouter()
 @router.post("/", response_description="user data added into the database")
 async def add_user_data(user: UserSchema = Body(...)):
     user = jsonable_encoder(user)
+    user['password'] = authentication_service.get_password_hash(user['password'])
     new_user = execute.add_data(user)
     response.base_response["data"] = new_user
     return response.base_response
