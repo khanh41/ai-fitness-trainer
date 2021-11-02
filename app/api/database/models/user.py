@@ -7,6 +7,7 @@ class UserSchema(BaseModel):
     email: str = Field(...)
     password: str = Field(...)
     role: int = Field(...)
+    disabled: bool = Field(...)
     createAt: Optional[str] = None
     updateAt: Optional[str] = None
 

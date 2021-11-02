@@ -20,6 +20,8 @@ aiofiles = "^0.6.0"
 PyYAML = "^5.4.1"
 python-dotenv = "^0.17.1"
 wget = "^3.2"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
 
 [tool.poetry.dev-dependencies]
 black = "^20.8b1"
