@@ -65,17 +65,7 @@ def get_application() -> FastAPI:
 
 app = get_application()
 
-import logging
-from fastapi.logger import logger as fastapi_logger
-
-gunicorn_error_logger = logging.getLogger("gunicorn.error")
-gunicorn_logger = logging.getLogger("gunicorn")
-uvicorn_access_logger = logging.getLogger("uvicorn.access")
-uvicorn_access_logger.handlers = gunicorn_error_logger.handlers
-
-fastapi_logger.handlers = gunicorn_error_logger.handlers
 if __name__ == "__main__":
     import uvicorn
 
-    fastapi_logger.setLevel(gunicorn_logger.level)
     uvicorn.run(app, host=HOST, port=int(PORT))
