@@ -8,7 +8,7 @@ license = "Khánh Pluto"
 [tool.poetry.dependencies]
 python = "^3.7.1"
 uvicorn = "^0.13.3"
-fastapi = "^0.61.1"
+fastapi = "^0.65.2"
 python-slugify = "^4.0"
 Unidecode = "^1.1"
 loguru = "^0.5.1"
