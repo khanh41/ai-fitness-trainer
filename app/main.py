@@ -1,17 +1,14 @@
 import os
 
 from fastapi import FastAPI
-from fastapi import Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 from starlette.exceptions import HTTPException
 from starlette.middleware.cors import CORSMiddleware
-from starlette.responses import HTMLResponse, StreamingResponse
+from starlette.responses import StreamingResponse
 
 from app.api.errors.http_error import http_error_handler
 from app.api.errors.validation_error import http422_error_handler
-from app.api.helpers.download import download_video_template
 from app.core.config import ALLOWED_HOSTS, API_PREFIX, DEBUG, PROJECT_NAME, VERSION
 from app.core.constant import VIDEO_TEMPLATE
 
@@ -22,10 +19,12 @@ CHUNK_SIZE = 1024 * 1024
 
 def get_application() -> FastAPI:
     from app.api.routes.api import app as api_router
+    from app.api.routes import authentication
+    from app.api.helpers.download import download_video_template
 
     download_video_template()
 
-    application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
+    application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION, docs_url=None)
     print()
     application.add_middleware(
         CORSMiddleware,
@@ -42,15 +41,17 @@ def get_application() -> FastAPI:
     application.add_exception_handler(RequestValidationError, http422_error_handler)
 
     application.include_router(api_router, prefix=API_PREFIX)
+    application.include_router(authentication.router, tags=["Authentication"])
 
     application.mount(
         "/static", StaticFiles(directory="app/frontend/static"), name="static"
     )
-    templates = Jinja2Templates(directory="app/frontend/templates")
 
-    @application.get("/", tags=["UI"], response_class=HTMLResponse, include_in_schema=False)
-    async def read_root(request: Request):
-        return templates.TemplateResponse("index.html", {"request": request})
+    # templates = Jinja2Templates(directory="app/frontend/templates")
+
+    # @application.get("/", tags=["UI"], response_class=HTMLResponse, include_in_schema=False)
+    # async def read_root(request: Request):
+    #     return templates.TemplateResponse("index.html", {"request": request})
 
     @application.get("/video")
     async def video_endpoint():
