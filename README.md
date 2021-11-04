@@ -1,4 +1,6 @@
 # AI Fitness Trainer - AIFT
+![docker build](https://github.com/khanh41/ai-fitness-trainer/actions/workflows/docker-image.yml/badge.svg)
+![codeQL](https://github.com/khanh41/ai-fitness-trainer/actions/workflows/codeql-analysis.yml/badge.svg)
 
 ## Installation ⚡️
 ### Requires
