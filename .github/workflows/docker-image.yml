@@ -17,9 +17,9 @@ jobs:
     - name: Create env
       run: |
         mv template.env .env
-        sed -i 's/$MONGO_DETAILS=.*/$MONGO_DETAILS='${{ secrets.MONGO_DETAILS }}'/' .env
-        sed -i 's/$SECRET_KEY=.*/$SECRET_KEY='${{ secrets.$SECRET_KEY }}'/' .env
-        sed -i 's/ALGORITHM=.*/ALGORITHM='${{ secrets.$ALGORITHM }}'/' .env
+        sed -i 's/MONGO_DETAILS=.*/MONGO_DETAILS='${{ secrets.MONGO_DETAILS }}'/' .env
+        sed -i 's/SECRET_KEY=.*/SECRET_KEY='${{ secrets.SECRET_KEY }}'/' .env
+        sed -i 's/ALGORITHM=.*/ALGORITHM='${{ secrets.ALGORITHM }}'/' .env
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
