@@ -1,0 +1,33 @@
+name: Deploy Azure VM
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create env
+      env:
+        MONGO_DETAILS: ${{ secrets.MONGO_DETAILS }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        ALGORITHM: ${{ secrets.ALGORITHM }}
+        CI_SSH_KEY: ${{ secrets.CI_SSH_KEY }}
+      run: |
+        mv template.env .env
+        sed -i 's/MONGO_DETAILS=.*/MONGO_DETAILS=$MONGO_DETAILS/' .env
+        sed -i 's/SECRET_KEY=.*/SECRET_KEY=$SECRET_KEY/' .env
+        sed -i 's/ALGORITHM=.*/ALGORITHM=$ALGORITHM/' .env
+        echo -e "$CI_SSH_KEY" > id_rsa
+    - name: Deploy
+      env:
+        CI_DEV_SSH_USER: ${{ secrets.CI_DEV_SSH_USER }}
+        CI_DEV_SSH_HOST: ${{ secrets.CI_DEV_SSH_HOST }}
+      run: |
+        rsync -ahrz --exclude-from '.dockerignore' -e "ssh -i id_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ./ $CI_DEV_SSH_USER@$CI_DEV_SSH_HOST:ai-fitness-trainer
+        ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $CI_DEV_SSH_USER@$CI_DEV_SSH_HOST "cd ai-fitness-trainer && sudo docker-compose up -d --build"
