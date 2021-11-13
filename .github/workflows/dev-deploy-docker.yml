@@ -24,7 +24,7 @@ jobs:
         sed -i 's/SECRET_KEY=.*/SECRET_KEY=$SECRET_KEY/' .env
         sed -i 's/ALGORITHM=.*/ALGORITHM=$ALGORITHM/' .env
         echo -e "$CI_SSH_KEY" > id_rsa
-        chmod 600 id_rsa
+        chmod 400 id_rsa
     - name: Deploy
       env:
         CI_DEV_SSH_USER: ${{ secrets.CI_DEV_SSH_USER }}
