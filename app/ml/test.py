@@ -10,7 +10,7 @@ from app.ml.figures.draw_keypoints import draw_prediction_on_image
 from app.ml.utils import calculateAngle
 
 now = time.time()
-image = load_image("C:\\Users\\tranv\Downloads\\252469684_2207242222749452_4433684325439921246_n.jpg")
+image = load_image("C:\\Users\\tranv\Downloads\\huong-dan-chong-day-dung-cach-cho-nguoi-moi-tap-Push-Up.jpg")
 # Resize and pad the image to keep the aspect ratio and fit the expected size.
 input_image = tf.expand_dims(image, axis=0)
 input_image = tf.image.resize_with_pad(input_image, input_size, input_size)

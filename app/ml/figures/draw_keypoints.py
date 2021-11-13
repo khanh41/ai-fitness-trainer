@@ -1,6 +1,6 @@
-import cv2
 import matplotlib.patches as patches
 import numpy as np
+from cv2 import cv2
 from matplotlib import pyplot as plt
 from matplotlib.collections import LineCollection
 
@@ -106,9 +106,7 @@ def _keypoints_and_edges_for_display(keypoints_with_scores,
     return keypoints_xy, edges_xy, edge_colors
 
 
-def draw_prediction_on_image(
-        image, keypoints_with_scores, crop_region=None, close_figure=False,
-        output_image_height=None):
+def draw_prediction_on_image(image, keypoints_with_scores, crop_region=None, output_image_height=None):
     """Draws the keypoint predictions on image.
 
     Args:
@@ -138,7 +136,7 @@ def draw_prediction_on_image(
     plt.axis('off')
 
     im = ax.imshow(image)
-    line_segments = LineCollection([], linewidths=(4), linestyle='solid')
+    line_segments = LineCollection([], linewidths=4, linestyle='solid')
     ax.add_collection(line_segments)
     # Turn off tick labels
     scat = ax.scatter([], [], s=60, color='#FF1493', zorder=3)
