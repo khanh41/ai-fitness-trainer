@@ -11,7 +11,7 @@ from starlette.responses import RedirectResponse, Response
 from app.api.database.models.token import Token, BasicAuth, basic_auth
 from app.api.database.models.user import UserSchema
 from app.api.services import authentication_service
-from app.core.constant import ACCESS_TOKEN_EXPIRE_MINUTES
+from app.core.constant import ACCESS_TOKEN_EXPIRE_MINUTES, DOMAIN
 from app.logger.logger import configure_logging
 
 # to get a string like this run:
@@ -40,7 +40,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 @router.get("/logout")
 async def route_logout_and_remove_cookie():
     response = RedirectResponse(url="/")
-    response.delete_cookie("Authorization", domain="localhost")
+    response.delete_cookie("Authorization", domain=DOMAIN)
     return response
 
 
@@ -68,7 +68,7 @@ async def login_basic(auth: BasicAuth = Depends(basic_auth)):
         response.set_cookie(
             "Authorization",
             value=f"Bearer {token}",
-            domain="localhost",
+            domain=DOMAIN,
             httponly=True,
             max_age=1800,
             expires=1800,
