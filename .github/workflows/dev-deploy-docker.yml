@@ -20,9 +20,9 @@ jobs:
         CI_SSH_KEY: ${{ secrets.CI_SSH_KEY }}
       run: |
         mv template.env .env
-        sed -i 's/MONGO_DETAILS=.*/MONGO_DETAILS=$MONGO_DETAILS/' .env
-        sed -i 's/SECRET_KEY=.*/SECRET_KEY=$SECRET_KEY/' .env
-        sed -i 's/ALGORITHM=.*/ALGORITHM=$ALGORITHM/' .env
+        sed -i 's/MONGO_DETAILS=.*/MONGO_DETAILS='$MONGO_DETAILS'/' .env
+        sed -i 's/SECRET_KEY=.*/SECRET_KEY='$SECRET_KEY'/' .env
+        sed -i 's/ALGORITHM=.*/ALGORITHM='$ALGORITHM'/' .env
         echo -e "$CI_SSH_KEY" > id_rsa.txt
     - name: Deploy
       env:
