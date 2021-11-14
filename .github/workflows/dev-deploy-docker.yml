@@ -24,7 +24,7 @@ jobs:
         sed -i "s~MONGO_DETAILS=.*~MONGO_DETAILS=$MONGO_DETAILS~g" .env
         sed -i "s~SECRET_KEY=.*~SECRET_KEY=$SECRET_KEY~g" .env
         sed -i "s~ALGORITHM=.*~ALGORITHM=$ALGORITHM~g" .env
-        sed -i "s~DOMAIN=.*~DOMAIN=DOMAIN~g" .env
+        sed -i "s~DOMAIN=.*~DOMAIN=$DOMAIN~g" .env
         echo -e "$CI_SSH_KEY" > id_rsa.txt
     - name: Deploy
       env:
