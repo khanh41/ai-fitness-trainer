@@ -30,4 +30,4 @@ jobs:
         CI_DEV_SSH_HOST: ${{ secrets.CI_DEV_SSH_HOST }}
       run: |
         rsync -ahrz --exclude-from '.dockerignore' -e "sudo ssh -i id_rsa.txt -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ./ $CI_DEV_SSH_USER@$CI_DEV_SSH_HOST:ai-fitness-trainer
-        sudo ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $CI_DEV_SSH_USER@$CI_DEV_SSH_HOST "cd ai-fitness-trainer && sudo docker-compose up -d --build"
+        sudo sshh -i id_rsa.txt -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $CI_DEV_SSH_USER@$CI_DEV_SSH_HOST "cd ai-fitness-trainer && sudo docker-compose up -d --build"
