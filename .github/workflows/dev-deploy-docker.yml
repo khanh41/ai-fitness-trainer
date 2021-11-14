@@ -23,12 +23,11 @@ jobs:
         sed -i 's/MONGO_DETAILS=.*/MONGO_DETAILS=$MONGO_DETAILS/' .env
         sed -i 's/SECRET_KEY=.*/SECRET_KEY=$SECRET_KEY/' .env
         sed -i 's/ALGORITHM=.*/ALGORITHM=$ALGORITHM/' .env
-        echo -e "$CI_SSH_KEY" > id_rsa
-        chmod 400 id_rsa
+        echo -e "$CI_SSH_KEY" > id_rsa.txt
     - name: Deploy
       env:
         CI_DEV_SSH_USER: ${{ secrets.CI_DEV_SSH_USER }}
         CI_DEV_SSH_HOST: ${{ secrets.CI_DEV_SSH_HOST }}
       run: |
-        rsync -ahrz --exclude-from '.dockerignore' -e "sudo ssh -i id_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ./ $CI_DEV_SSH_USER@$CI_DEV_SSH_HOST:ai-fitness-trainer
+        rsync -ahrz --exclude-from '.dockerignore' -e "sudo ssh -i id_rsa.txt -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ./ $CI_DEV_SSH_USER@$CI_DEV_SSH_HOST:ai-fitness-trainer
         sudo ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $CI_DEV_SSH_USER@$CI_DEV_SSH_HOST "cd ai-fitness-trainer && sudo docker-compose up -d --build"
