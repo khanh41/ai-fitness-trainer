@@ -2,6 +2,7 @@ def exercise_helper(data) -> dict:
     return {
         "id": str(data["_id"]),
         "name": data["name"],
+        "numStep": data["numStep"],
         "level": data["level"],
         "rating": data["rating"],
         "createAt": str(data["createAt"]),
