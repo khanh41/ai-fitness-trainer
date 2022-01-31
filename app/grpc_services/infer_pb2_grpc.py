@@ -16,7 +16,7 @@ class ExercisePredictStub(object):
         """
         self.Inference = channel.unary_unary(
                 '/ExercisePredict/Inference',
-                request_serializer=ops_dot_grpc_dot_infer__pb2.ImgBase64.SerializeToString,
+                request_serializer=ops_dot_grpc_dot_infer__pb2.ExercisePredictRequest.SerializeToString,
                 response_deserializer=ops_dot_grpc_dot_infer__pb2.ImgBase64.FromString,
                 )
 
@@ -35,7 +35,7 @@ def add_ExercisePredictServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Inference': grpc.unary_unary_rpc_method_handler(
                     servicer.Inference,
-                    request_deserializer=ops_dot_grpc_dot_infer__pb2.ImgBase64.FromString,
+                    request_deserializer=ops_dot_grpc_dot_infer__pb2.ExercisePredictRequest.FromString,
                     response_serializer=ops_dot_grpc_dot_infer__pb2.ImgBase64.SerializeToString,
             ),
     }
@@ -60,7 +60,7 @@ class ExercisePredict(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ExercisePredict/Inference',
-            ops_dot_grpc_dot_infer__pb2.ImgBase64.SerializeToString,
+            ops_dot_grpc_dot_infer__pb2.ExercisePredictRequest.SerializeToString,
             ops_dot_grpc_dot_infer__pb2.ImgBase64.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
