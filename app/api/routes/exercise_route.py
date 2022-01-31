@@ -6,7 +6,7 @@ from fastapi.encoders import jsonable_encoder
 from app.api.database.execute.exercise import exercise_execute as execute
 from app.api.database.models.exercise import ExerciseSchema
 from app.api.responses.base import response
-from app.api.services.exercise_service import exercise_predict
+from app.api.services import exercise_service
 from app.logger.logger import configure_logging
 
 logger = configure_logging(__name__)
@@ -22,9 +22,10 @@ async def add_exercise_data(exercise: ExerciseSchema = Body(...)):
 
 
 @router.post("/images", response_description="exercise images added")
-async def add_exercise_images(name: str = None, files: List[UploadFile] = File(...)):
+async def add_exercise_images(name: str, files: List[UploadFile] = File(...)):
     for index, file in enumerate(files):
         content = await file.read()
+        exercise_service.save_image_to_firebase_storage(content, name)
     return response.success_response()
 
 

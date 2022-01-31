@@ -26,6 +26,7 @@ opencv-python = "4.5.2.54"
 grpcio = "^1.43.0"
 grpcio-tools = "^1.43.0"
 Pillow = "^9.0.0"
+google-cloud-storage = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
 black = "^20.8b1"
