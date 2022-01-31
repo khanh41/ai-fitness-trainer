@@ -1,9 +1,12 @@
-from fastapi import APIRouter, Body
+from typing import List
+
+from fastapi import APIRouter, Body, UploadFile, File
 from fastapi.encoders import jsonable_encoder
 
 from app.api.database.execute.exercise import exercise_execute as execute
 from app.api.database.models.exercise import ExerciseSchema
 from app.api.responses.base import response
+from app.api.services import exercise_service
 from app.logger.logger import configure_logging
 
 logger = configure_logging(__name__)
@@ -16,6 +19,14 @@ async def add_exercise_data(exercise: ExerciseSchema = Body(...)):
     new_exercise = execute.add_data(exercise)
     response.base_response["data"] = new_exercise
     return response.base_response
+
+
+@router.post("/images", response_description="exercise images added")
+async def add_exercise_images(name: str, files: List[UploadFile] = File(...)):
+    for index, file in enumerate(files):
+        content = await file.read()
+        exercise_service.save_image_to_firebase_storage(content, name)
+    return response.success_response()
 
 
 @router.get("/", response_description="exercises retrieved")
@@ -58,3 +69,19 @@ async def delete_exercise_data(id: str):
             "exercise with ID: {} removed".format(id), "exercise deleted successfully"
         )
     return response.error_response("exercise with id {0} doesn't exist".format(id), 404)
+
+
+@router.get("/search/{name}", response_description="exercise data by name retrieved")
+async def get_exercise_by_name(name):
+    exercise = execute.retrieve_data_by_name(name)
+    if exercise:
+        response.base_response["data"] = exercise
+        return response.base_response
+    return response.error_response("A exercise doesn't exist.", 404)
+
+
+@router.post("/predict-form", response_description="exercise predicted")
+async def predict_form(file: UploadFile = File(...)):
+    contents = await file.read()
+    exercise_predict(contents)
+    return response.error_response("A exercise doesn't exist.", 404)
