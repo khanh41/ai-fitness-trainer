@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14ops/grpc/infer.proto\"\x1f\n\tImgBase64\x12\x12\n\nimg_origin\x18\x01 \x01(\t28\n\x0f\x45xercisePredict\x12%\n\tInference\x12\n.ImgBase64\x1a\n.ImgBase64\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x14ops/grpc/infer.proto\"\x1f\n\tImgBase64\x12\x12\n\nimg_origin\x18\x01 \x01(\t\"C\n\x16\x45xercisePredictRequest\x12\x12\n\nimg_origin\x18\x01 \x01(\t\x12\x15\n\rexercise_name\x18\x02 \x01(\t2E\n\x0f\x45xercisePredict\x12\x32\n\tInference\x12\x17.ExercisePredictRequest\x1a\n.ImgBase64\"\x00\x62\x06proto3'
 )
 
 
@@ -56,7 +56,47 @@ _IMGBASE64 = _descriptor.Descriptor(
   serialized_end=55,
 )
 
+
+_EXERCISEPREDICTREQUEST = _descriptor.Descriptor(
+  name='ExercisePredictRequest',
+  full_name='ExercisePredictRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='img_origin', full_name='ExercisePredictRequest.img_origin', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exercise_name', full_name='ExercisePredictRequest.exercise_name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=57,
+  serialized_end=124,
+)
+
 DESCRIPTOR.message_types_by_name['ImgBase64'] = _IMGBASE64
+DESCRIPTOR.message_types_by_name['ExercisePredictRequest'] = _EXERCISEPREDICTREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ImgBase64 = _reflection.GeneratedProtocolMessageType('ImgBase64', (_message.Message,), {
@@ -65,6 +105,13 @@ ImgBase64 = _reflection.GeneratedProtocolMessageType('ImgBase64', (_message.Mess
   # @@protoc_insertion_point(class_scope:ImgBase64)
   })
 _sym_db.RegisterMessage(ImgBase64)
+
+ExercisePredictRequest = _reflection.GeneratedProtocolMessageType('ExercisePredictRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EXERCISEPREDICTREQUEST,
+  '__module__' : 'ops.grpc.infer_pb2'
+  # @@protoc_insertion_point(class_scope:ExercisePredictRequest)
+  })
+_sym_db.RegisterMessage(ExercisePredictRequest)
 
 
 
@@ -75,15 +122,15 @@ _EXERCISEPREDICT = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=57,
-  serialized_end=113,
+  serialized_start=126,
+  serialized_end=195,
   methods=[
   _descriptor.MethodDescriptor(
     name='Inference',
     full_name='ExercisePredict.Inference',
     index=0,
     containing_service=None,
-    input_type=_IMGBASE64,
+    input_type=_EXERCISEPREDICTREQUEST,
     output_type=_IMGBASE64,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,

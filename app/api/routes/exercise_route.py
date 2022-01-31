@@ -81,7 +81,12 @@ async def get_exercise_by_name(name):
 
 
 @router.post("/predict-form", response_description="exercise predicted")
-async def predict_form(file: UploadFile = File(...)):
-    contents = await file.read()
-    exercise_predict(contents)
-    return response.error_response("A exercise doesn't exist.", 404)
+async def predict_form(exercise_name: str, file: UploadFile = File(...)):
+    try:
+        contents = await file.read()
+        base64_img = exercise_service.exercise_predict(exercise_name, contents)
+        response.base_response["data"] = base64_img
+        print(base64_img)
+        return response.base_response
+    except Exception as e:
+        return response.error_response(str(e), 500)
