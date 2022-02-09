@@ -49,7 +49,6 @@ def user_helper(data) -> dict:
 def exercise_trainer_helper(data) -> dict:
     return {
         "id": str(data["_id"]),
-        "modelUrl": data["modelUrl"],
         "angleConfig": data["angleConfig"],
         "createAt": str(data["createAt"]),
         "updateAt": str(data["updateAt"]),
