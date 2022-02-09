@@ -5,7 +5,6 @@ from pydantic import BaseModel, Field
 
 class ExerciseTrainerSchema(BaseModel):
     exerciseId: str = Field(...)
-    modelUrl: str = Field(...)
     angleConfig: List[List] = Field(...)
     createAt: Optional[str] = None
     updateAt: Optional[str] = None
@@ -14,7 +13,6 @@ class ExerciseTrainerSchema(BaseModel):
         schema_extra = {
             "example": {
                 "exerciseId": "1233",
-                "modelUrl": "example.com",
                 "angleConfig": [[1, 2, 3]],
             }
         }
