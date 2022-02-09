@@ -19,6 +19,7 @@ jobs:
         ALGORITHM: ${{ secrets.ALGORITHM }}
         CI_SSH_KEY: ${{ secrets.CI_SSH_KEY }}
         DOMAIN: ${{ secrets.CI_DEV_SSH_HOST }}
+        STORAGE_KEY: ${{ secrets.STORAGE_KEY }}
       run: |
         mv template.env .env
         sed -i "s~MONGO_DETAILS=.*~MONGO_DETAILS=$MONGO_DETAILS~g" .env
