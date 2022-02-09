@@ -26,6 +26,7 @@ jobs:
         sed -i "s~ALGORITHM=.*~ALGORITHM=$ALGORITHM~g" .env
         sed -i "s~DOMAIN=.*~DOMAIN=$DOMAIN~g" .env
         echo -e "$CI_SSH_KEY" > id_rsa.txt
+        echo -e "$STORAGE_KEY" > aift_storage_key.json
     - name: Deploy
       env:
         CI_DEV_SSH_USER: ${{ secrets.CI_DEV_SSH_USER }}
