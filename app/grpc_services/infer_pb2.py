@@ -19,22 +19,22 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14ops/grpc/infer.proto\"\x1f\n\tImgBase64\x12\x12\n\nimg_origin\x18\x01 \x01(\t\"C\n\x16\x45xercisePredictRequest\x12\x12\n\nimg_origin\x18\x01 \x01(\t\x12\x15\n\rexercise_name\x18\x02 \x01(\t2E\n\x0f\x45xercisePredict\x12\x32\n\tInference\x12\x17.ExercisePredictRequest\x1a\n.ImgBase64\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x14ops/grpc/infer.proto\" \n\rParam1Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\"1\n\rParam2Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\x12\x0f\n\x07param_2\x18\x02 \x01(\t\"B\n\rParam3Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\x12\x0f\n\x07param_2\x18\x02 \x01(\t\x12\x0f\n\x07param_3\x18\x03 \x01(\t2J\n\x14\x45xerciseImagePredict\x12\x32\n\x0eImageInference\x12\x0e.Param3Request\x1a\x0e.Param1Request\"\x00\x32J\n\x14\x45xerciseVideoPredict\x12\x32\n\x0eVideoInference\x12\x0e.Param2Request\x1a\x0e.Param1Request\"\x00\x32\x44\n\x10UpdateDataConfig\x12\x30\n\x0cUpdateConfig\x12\x0e.Param1Request\x1a\x0e.Param1Request\"\x00\x62\x06proto3'
 )
 
 
 
 
-_IMGBASE64 = _descriptor.Descriptor(
-  name='ImgBase64',
-  full_name='ImgBase64',
+_PARAM1REQUEST = _descriptor.Descriptor(
+  name='Param1Request',
+  full_name='Param1Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='img_origin', full_name='ImgBase64.img_origin', index=0,
+      name='param_1', full_name='Param1Request.param_1', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -53,27 +53,27 @@ _IMGBASE64 = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=24,
-  serialized_end=55,
+  serialized_end=56,
 )
 
 
-_EXERCISEPREDICTREQUEST = _descriptor.Descriptor(
-  name='ExercisePredictRequest',
-  full_name='ExercisePredictRequest',
+_PARAM2REQUEST = _descriptor.Descriptor(
+  name='Param2Request',
+  full_name='Param2Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='img_origin', full_name='ExercisePredictRequest.img_origin', index=0,
+      name='param_1', full_name='Param2Request.param_1', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='exercise_name', full_name='ExercisePredictRequest.exercise_name', index=1,
+      name='param_2', full_name='Param2Request.param_2', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -91,53 +91,159 @@ _EXERCISEPREDICTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=57,
-  serialized_end=124,
+  serialized_start=58,
+  serialized_end=107,
 )
 
-DESCRIPTOR.message_types_by_name['ImgBase64'] = _IMGBASE64
-DESCRIPTOR.message_types_by_name['ExercisePredictRequest'] = _EXERCISEPREDICTREQUEST
+
+_PARAM3REQUEST = _descriptor.Descriptor(
+  name='Param3Request',
+  full_name='Param3Request',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='param_1', full_name='Param3Request.param_1', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='param_2', full_name='Param3Request.param_2', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='param_3', full_name='Param3Request.param_3', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=109,
+  serialized_end=175,
+)
+
+DESCRIPTOR.message_types_by_name['Param1Request'] = _PARAM1REQUEST
+DESCRIPTOR.message_types_by_name['Param2Request'] = _PARAM2REQUEST
+DESCRIPTOR.message_types_by_name['Param3Request'] = _PARAM3REQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-ImgBase64 = _reflection.GeneratedProtocolMessageType('ImgBase64', (_message.Message,), {
-  'DESCRIPTOR' : _IMGBASE64,
+Param1Request = _reflection.GeneratedProtocolMessageType('Param1Request', (_message.Message,), {
+  'DESCRIPTOR' : _PARAM1REQUEST,
   '__module__' : 'ops.grpc.infer_pb2'
-  # @@protoc_insertion_point(class_scope:ImgBase64)
+  # @@protoc_insertion_point(class_scope:Param1Request)
   })
-_sym_db.RegisterMessage(ImgBase64)
+_sym_db.RegisterMessage(Param1Request)
 
-ExercisePredictRequest = _reflection.GeneratedProtocolMessageType('ExercisePredictRequest', (_message.Message,), {
-  'DESCRIPTOR' : _EXERCISEPREDICTREQUEST,
+Param2Request = _reflection.GeneratedProtocolMessageType('Param2Request', (_message.Message,), {
+  'DESCRIPTOR' : _PARAM2REQUEST,
   '__module__' : 'ops.grpc.infer_pb2'
-  # @@protoc_insertion_point(class_scope:ExercisePredictRequest)
+  # @@protoc_insertion_point(class_scope:Param2Request)
   })
-_sym_db.RegisterMessage(ExercisePredictRequest)
+_sym_db.RegisterMessage(Param2Request)
+
+Param3Request = _reflection.GeneratedProtocolMessageType('Param3Request', (_message.Message,), {
+  'DESCRIPTOR' : _PARAM3REQUEST,
+  '__module__' : 'ops.grpc.infer_pb2'
+  # @@protoc_insertion_point(class_scope:Param3Request)
+  })
+_sym_db.RegisterMessage(Param3Request)
 
 
 
-_EXERCISEPREDICT = _descriptor.ServiceDescriptor(
-  name='ExercisePredict',
-  full_name='ExercisePredict',
+_EXERCISEIMAGEPREDICT = _descriptor.ServiceDescriptor(
+  name='ExerciseImagePredict',
+  full_name='ExerciseImagePredict',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=126,
-  serialized_end=195,
+  serialized_start=177,
+  serialized_end=251,
   methods=[
   _descriptor.MethodDescriptor(
-    name='Inference',
-    full_name='ExercisePredict.Inference',
+    name='ImageInference',
+    full_name='ExerciseImagePredict.ImageInference',
     index=0,
     containing_service=None,
-    input_type=_EXERCISEPREDICTREQUEST,
-    output_type=_IMGBASE64,
+    input_type=_PARAM3REQUEST,
+    output_type=_PARAM1REQUEST,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_EXERCISEPREDICT)
+_sym_db.RegisterServiceDescriptor(_EXERCISEIMAGEPREDICT)
 
-DESCRIPTOR.services_by_name['ExercisePredict'] = _EXERCISEPREDICT
+DESCRIPTOR.services_by_name['ExerciseImagePredict'] = _EXERCISEIMAGEPREDICT
+
+
+_EXERCISEVIDEOPREDICT = _descriptor.ServiceDescriptor(
+  name='ExerciseVideoPredict',
+  full_name='ExerciseVideoPredict',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=253,
+  serialized_end=327,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='VideoInference',
+    full_name='ExerciseVideoPredict.VideoInference',
+    index=0,
+    containing_service=None,
+    input_type=_PARAM2REQUEST,
+    output_type=_PARAM1REQUEST,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_EXERCISEVIDEOPREDICT)
+
+DESCRIPTOR.services_by_name['ExerciseVideoPredict'] = _EXERCISEVIDEOPREDICT
+
+
+_UPDATEDATACONFIG = _descriptor.ServiceDescriptor(
+  name='UpdateDataConfig',
+  full_name='UpdateDataConfig',
+  file=DESCRIPTOR,
+  index=2,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=329,
+  serialized_end=397,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='UpdateConfig',
+    full_name='UpdateDataConfig.UpdateConfig',
+    index=0,
+    containing_service=None,
+    input_type=_PARAM1REQUEST,
+    output_type=_PARAM1REQUEST,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_UPDATEDATACONFIG)
+
+DESCRIPTOR.services_by_name['UpdateDataConfig'] = _UPDATEDATACONFIG
 
 # @@protoc_insertion_point(module_scope)
