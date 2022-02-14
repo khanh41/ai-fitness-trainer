@@ -5,7 +5,7 @@ import grpc
 from app.grpc_services import infer_pb2 as ops_dot_grpc_dot_infer__pb2
 
 
-class ExercisePredictStub(object):
+class ExerciseImagePredictStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -14,42 +14,42 @@ class ExercisePredictStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Inference = channel.unary_unary(
-                '/ExercisePredict/Inference',
-                request_serializer=ops_dot_grpc_dot_infer__pb2.ExercisePredictRequest.SerializeToString,
-                response_deserializer=ops_dot_grpc_dot_infer__pb2.ImgBase64.FromString,
+        self.ImageInference = channel.unary_unary(
+                '/ExerciseImagePredict/ImageInference',
+                request_serializer=ops_dot_grpc_dot_infer__pb2.Param3Request.SerializeToString,
+                response_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
                 )
 
 
-class ExercisePredictServicer(object):
+class ExerciseImagePredictServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Inference(self, request, context):
+    def ImageInference(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ExercisePredictServicer_to_server(servicer, server):
+def add_ExerciseImagePredictServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Inference': grpc.unary_unary_rpc_method_handler(
-                    servicer.Inference,
-                    request_deserializer=ops_dot_grpc_dot_infer__pb2.ExercisePredictRequest.FromString,
-                    response_serializer=ops_dot_grpc_dot_infer__pb2.ImgBase64.SerializeToString,
+            'ImageInference': grpc.unary_unary_rpc_method_handler(
+                    servicer.ImageInference,
+                    request_deserializer=ops_dot_grpc_dot_infer__pb2.Param3Request.FromString,
+                    response_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ExercisePredict', rpc_method_handlers)
+            'ExerciseImagePredict', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ExercisePredict(object):
+class ExerciseImagePredict(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Inference(request,
+    def ImageInference(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +59,130 @@ class ExercisePredict(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ExercisePredict/Inference',
-            ops_dot_grpc_dot_infer__pb2.ExercisePredictRequest.SerializeToString,
-            ops_dot_grpc_dot_infer__pb2.ImgBase64.FromString,
+        return grpc.experimental.unary_unary(request, target, '/ExerciseImagePredict/ImageInference',
+            ops_dot_grpc_dot_infer__pb2.Param3Request.SerializeToString,
+            ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class ExerciseVideoPredictStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.VideoInference = channel.unary_unary(
+                '/ExerciseVideoPredict/VideoInference',
+                request_serializer=ops_dot_grpc_dot_infer__pb2.Param2Request.SerializeToString,
+                response_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+                )
+
+
+class ExerciseVideoPredictServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def VideoInference(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_ExerciseVideoPredictServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'VideoInference': grpc.unary_unary_rpc_method_handler(
+                    servicer.VideoInference,
+                    request_deserializer=ops_dot_grpc_dot_infer__pb2.Param2Request.FromString,
+                    response_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'ExerciseVideoPredict', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class ExerciseVideoPredict(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def VideoInference(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ExerciseVideoPredict/VideoInference',
+            ops_dot_grpc_dot_infer__pb2.Param2Request.SerializeToString,
+            ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class UpdateDataConfigStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.UpdateConfig = channel.unary_unary(
+                '/UpdateDataConfig/UpdateConfig',
+                request_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
+                response_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+                )
+
+
+class UpdateDataConfigServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def UpdateConfig(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_UpdateDataConfigServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'UpdateConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateConfig,
+                    request_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+                    response_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'UpdateDataConfig', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class UpdateDataConfig(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def UpdateConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/UpdateDataConfig/UpdateConfig',
+            ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
+            ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

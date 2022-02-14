@@ -11,7 +11,7 @@ from app.core.config import ALLOWED_HOSTS, API_PREFIX, DEBUG, PROJECT_NAME, VERS
 from app.api.database.migrate.init_super_user import init_super_user
 from app.api.errors.http_error import http_error_handler
 from app.api.errors.validation_error import http422_error_handler
-from app.core.constant import VIDEO_TEMPLATE
+from app.core.constant import AiPredict
 
 HOST = os.getenv("APP_HOST")
 PORT = os.getenv("APP_PORT")
@@ -21,10 +21,8 @@ CHUNK_SIZE = 1024 * 1024
 def get_application() -> FastAPI:
     from app.api.routes.api import app as api_router
     from app.api.routes import authentication
-    from app.api.helpers.download import download_video_template
 
     init_super_user()
-    download_video_template()
 
     application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION, docs_url=None)
     print()
@@ -55,10 +53,11 @@ def get_application() -> FastAPI:
     # async def read_root(request: Request):
     #     return templates.TemplateResponse("index.html", {"request": request})
 
-    @application.get("/video")
-    async def video_endpoint():
+    @application.get("/video/{video_id}")
+    async def video_endpoint(video_id):
         def iterfile():
-            with open(VIDEO_TEMPLATE["path"], mode="rb") as file_like:
+            with open(os.path.join(AiPredict.predict_video_path,
+                                   video_id + '.avi'), mode="rb") as file_like:
                 yield from file_like
 
         return StreamingResponse(iterfile(), media_type="video/mp4")
