@@ -1,4 +1,3 @@
-
 FROM python:3.8.1-slim
 
 ENV PYTHONUNBUFFERED 1

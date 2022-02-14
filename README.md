@@ -69,13 +69,6 @@ app
 │   └── routes           - web routes.
 │   └── services         - logic that is not just crud related.
 │   └── responses        - response for api request corresponding.
-├── ml                   - machine learning model and preprocessing.
-│   ├── data_loader      - load data or model.
-│   ├── preprocessing    - preprocessing data.
-│   ├── figures          - draw (ignore).
-│   ├── metrics          - metrics for model, etc.
-│   ├── base_model       - model machine learning setup
-│   ├── trainers         - model machine learning training.
 ├── core                 - application configuration, startup events, logging.
 ├── logger               - export log for server process.
 ├── tests                - test api, code.

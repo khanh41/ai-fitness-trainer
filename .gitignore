@@ -1,8 +1,11 @@
 temp.txt
 app/logger/*
 !app/logger/logger.py
-app/resources/*
-!app/resources/.keep
+
+app/resources/**
+!app/resources/**/
+!.keep
+
 .env
 *.jpg
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm,python,jupyternotebooks,vscode,visualstudiocode
