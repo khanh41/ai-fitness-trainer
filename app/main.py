@@ -57,7 +57,7 @@ def get_application() -> FastAPI:
     async def video_endpoint(video_id):
         def iterfile():
             with open(os.path.join(AiPredict.predict_video_path,
-                                   video_id + '.avi'), mode="rb") as file_like:
+                                   video_id + '.mp4'), mode="rb") as file_like:
                 yield from file_like
 
         return StreamingResponse(iterfile(), media_type="video/mp4")

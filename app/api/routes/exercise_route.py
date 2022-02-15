@@ -95,8 +95,8 @@ async def predict_form(exercise_code: str, exercise_name: str, file: UploadFile 
 async def predict_video(exercise_name: str, file: UploadFile = File(...)):
     try:
         contents = await file.read()
-        base64_img = exercise_service.exercise_predict_video(exercise_name, contents)
-        response.base_response["data"] = base64_img
+        data = exercise_service.exercise_predict_video(exercise_name, contents)
+        response.base_response["data"] = data
         return response.base_response
     except Exception as e:
         return response.error_response(str(e), 500)
