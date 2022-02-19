@@ -7,7 +7,6 @@ FIREBASE_IMAGE_URL = lambda x: f"https://firebasestorage.googleapis.com/v0/b/aif
 
 VIDEO_PATH = "app/resources/videos"
 
-DOMAIN = os.getenv("DOMAIN")
 MONGO_DETAILS = os.getenv("MONGO_DETAILS")
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALGORITHM = os.getenv('ALGORITHM')
