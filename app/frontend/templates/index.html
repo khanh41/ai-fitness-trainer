@@ -1,12 +1,16 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>WebRTC webcam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIFT - RTC</title>
     <style>
     button {
         padding: 8px 16px;
+    }
+
+    pre {
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     video {
@@ -20,23 +24,52 @@
     #media {
         max-width: 1280px;
     }
-
     </style>
 </head>
 <body>
 
 <div class="option">
-    <input id="use-stun" type="checkbox"/>
-    <label for="use-stun">Use STUN server</label>
+    <label>Exercise name: </label>
+    <select id="video-transform">
+        <option value="none" selected>No transform</option>
+        <option value="edges">Edge detection</option>
+        <option value="cartoon">Cartoon effect</option>
+        <option value="rotate">Rotate</option>
+    </select>
 </div>
+
 <button id="start" onclick="start()">Start</button>
 <button id="stop" style="display: none" onclick="stop()">Stop</button>
 
-<div id="media">
+<div style="display:none">
+<h2>State</h2>
+<p>
+    ICE gathering state: <span id="ice-gathering-state"></span>
+</p>
+<p>
+    ICE connection state: <span id="ice-connection-state"></span>
+</p>
+<p>
+    Signaling state: <span id="signaling-state"></span>
+</p></div>
+
+<div id="media" style="display: none">
     <h2>Media</h2>
 
     <audio id="audio" autoplay="true"></audio>
     <video id="video" autoplay="true" playsinline="true"></video>
+</div>
+
+<div style="display:none">
+
+    <h2>SDP</h2>
+
+    <h3>Offer</h3>
+    <pre id="offer-sdp"></pre>
+
+    <h3>Answer</h3>
+    <pre id="answer-sdp"></pre>
+
 </div>
 
 <script src="{{ url_for('static', path='/js/client.js') }}"></script>
