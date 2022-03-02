@@ -100,3 +100,11 @@ async def predict_video(exercise_name: str, file: UploadFile = File(...)):
         return response.base_response
     except Exception as e:
         return response.error_response(str(e), 500)
+
+
+@router.post("/history-images", response_description="Exercise history images added")
+async def add_exercise_images(files: List[UploadFile] = File(...)):
+    for index, file in enumerate(files):
+        content = await file.read()
+        exercise_service.save_image_to_firebase_storage(content, "name")
+    return response.success_response()

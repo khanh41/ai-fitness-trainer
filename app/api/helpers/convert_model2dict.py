@@ -18,6 +18,8 @@ def user_information_helper(data) -> dict:
         "email": data["email"],
         "phoneNumber": data["phoneNumber"],
         "weight": data["weight"],
+        "height": data["height"],
+        "historyImages": data["historyImages"],
         "createAt": str(data["createAt"]),
         "updateAt": str(data["updateAt"]),
     }

@@ -11,6 +11,7 @@ class UserInformationSchema(BaseModel):
     weight: float = Field(...)
     height: float = Field(...)
     age: int = Field(...)
+    historyImages: list = Field()
     createAt: Optional[str] = None
     updateAt: Optional[str] = None
 
@@ -23,5 +24,6 @@ class UserInformationSchema(BaseModel):
                 "phoneNumber": "0123456789",
                 "weight": 42.5,
                 "height": 162,
+                "historyImages": [],
             }
         }
