@@ -36,4 +36,4 @@ def save_byte_to_video(request):
     with open(save_path, "wb") as out_file:
         out_file.write(request)
 
-    return save_path
+    return os.path.abspath(save_path)
