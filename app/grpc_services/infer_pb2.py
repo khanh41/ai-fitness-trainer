@@ -6,139 +6,132 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
+
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
-
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='ops/grpc/infer.proto',
-  package='',
-  syntax='proto3',
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14ops/grpc/infer.proto\" \n\rParam1Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\"1\n\rParam2Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\x12\x0f\n\x07param_2\x18\x02 \x01(\t\"B\n\rParam3Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\x12\x0f\n\x07param_2\x18\x02 \x01(\t\x12\x0f\n\x07param_3\x18\x03 \x01(\t2J\n\x14\x45xerciseImagePredict\x12\x32\n\x0eImageInference\x12\x0e.Param3Request\x1a\x0e.Param1Request\"\x00\x32J\n\x14\x45xerciseVideoPredict\x12\x32\n\x0eVideoInference\x12\x0e.Param2Request\x1a\x0e.Param1Request\"\x00\x32\x44\n\x10UpdateDataConfig\x12\x30\n\x0cUpdateConfig\x12\x0e.Param1Request\x1a\x0e.Param1Request\"\x00\x62\x06proto3'
+    name='ops/grpc/infer.proto',
+    package='',
+    syntax='proto3',
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+    serialized_pb=b'\n\x14ops/grpc/infer.proto\" \n\rParam1Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\"1\n\rParam2Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\x12\x0f\n\x07param_2\x18\x02 \x01(\t\"B\n\rParam3Request\x12\x0f\n\x07param_1\x18\x01 \x01(\t\x12\x0f\n\x07param_2\x18\x02 \x01(\t\x12\x0f\n\x07param_3\x18\x03 \x01(\t2J\n\x14\x45xerciseImagePredict\x12\x32\n\x0eImageInference\x12\x0e.Param3Request\x1a\x0e.Param2Request\"\x00\x32J\n\x14\x45xerciseVideoPredict\x12\x32\n\x0eVideoInference\x12\x0e.Param2Request\x1a\x0e.Param1Request\"\x00\x32\x44\n\x10UpdateDataConfig\x12\x30\n\x0cUpdateConfig\x12\x0e.Param1Request\x1a\x0e.Param1Request\"\x00\x62\x06proto3'
 )
-
-
-
 
 _PARAM1REQUEST = _descriptor.Descriptor(
-  name='Param1Request',
-  full_name='Param1Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='param_1', full_name='Param1Request.param_1', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=24,
-  serialized_end=56,
+    name='Param1Request',
+    full_name='Param1Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='param_1', full_name='Param1Request.param_1', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR, create_key=_descriptor._internal_create_key),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=24,
+    serialized_end=56,
 )
-
 
 _PARAM2REQUEST = _descriptor.Descriptor(
-  name='Param2Request',
-  full_name='Param2Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='param_1', full_name='Param2Request.param_1', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='param_2', full_name='Param2Request.param_2', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=58,
-  serialized_end=107,
+    name='Param2Request',
+    full_name='Param2Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='param_1', full_name='Param2Request.param_1', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR, create_key=_descriptor._internal_create_key),
+        _descriptor.FieldDescriptor(
+            name='param_2', full_name='Param2Request.param_2', index=1,
+            number=2, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR, create_key=_descriptor._internal_create_key),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=58,
+    serialized_end=107,
 )
 
-
 _PARAM3REQUEST = _descriptor.Descriptor(
-  name='Param3Request',
-  full_name='Param3Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='param_1', full_name='Param3Request.param_1', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='param_2', full_name='Param3Request.param_2', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='param_3', full_name='Param3Request.param_3', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=109,
-  serialized_end=175,
+    name='Param3Request',
+    full_name='Param3Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='param_1', full_name='Param3Request.param_1', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR, create_key=_descriptor._internal_create_key),
+        _descriptor.FieldDescriptor(
+            name='param_2', full_name='Param3Request.param_2', index=1,
+            number=2, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR, create_key=_descriptor._internal_create_key),
+        _descriptor.FieldDescriptor(
+            name='param_3', full_name='Param3Request.param_3', index=2,
+            number=3, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR, create_key=_descriptor._internal_create_key),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=109,
+    serialized_end=175,
 )
 
 DESCRIPTOR.message_types_by_name['Param1Request'] = _PARAM1REQUEST
@@ -147,101 +140,97 @@ DESCRIPTOR.message_types_by_name['Param3Request'] = _PARAM3REQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Param1Request = _reflection.GeneratedProtocolMessageType('Param1Request', (_message.Message,), {
-  'DESCRIPTOR' : _PARAM1REQUEST,
-  '__module__' : 'ops.grpc.infer_pb2'
-  # @@protoc_insertion_point(class_scope:Param1Request)
-  })
+    'DESCRIPTOR': _PARAM1REQUEST,
+    '__module__': 'ops.grpc.infer_pb2'
+    # @@protoc_insertion_point(class_scope:Param1Request)
+})
 _sym_db.RegisterMessage(Param1Request)
 
 Param2Request = _reflection.GeneratedProtocolMessageType('Param2Request', (_message.Message,), {
-  'DESCRIPTOR' : _PARAM2REQUEST,
-  '__module__' : 'ops.grpc.infer_pb2'
-  # @@protoc_insertion_point(class_scope:Param2Request)
-  })
+    'DESCRIPTOR': _PARAM2REQUEST,
+    '__module__': 'ops.grpc.infer_pb2'
+    # @@protoc_insertion_point(class_scope:Param2Request)
+})
 _sym_db.RegisterMessage(Param2Request)
 
 Param3Request = _reflection.GeneratedProtocolMessageType('Param3Request', (_message.Message,), {
-  'DESCRIPTOR' : _PARAM3REQUEST,
-  '__module__' : 'ops.grpc.infer_pb2'
-  # @@protoc_insertion_point(class_scope:Param3Request)
-  })
+    'DESCRIPTOR': _PARAM3REQUEST,
+    '__module__': 'ops.grpc.infer_pb2'
+    # @@protoc_insertion_point(class_scope:Param3Request)
+})
 _sym_db.RegisterMessage(Param3Request)
 
-
-
 _EXERCISEIMAGEPREDICT = _descriptor.ServiceDescriptor(
-  name='ExerciseImagePredict',
-  full_name='ExerciseImagePredict',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=177,
-  serialized_end=251,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='ImageInference',
-    full_name='ExerciseImagePredict.ImageInference',
+    name='ExerciseImagePredict',
+    full_name='ExerciseImagePredict',
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_PARAM3REQUEST,
-    output_type=_PARAM1REQUEST,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-  ),
-])
+    serialized_start=177,
+    serialized_end=251,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='ImageInference',
+            full_name='ExerciseImagePredict.ImageInference',
+            index=0,
+            containing_service=None,
+            input_type=_PARAM3REQUEST,
+            output_type=_PARAM2REQUEST,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_EXERCISEIMAGEPREDICT)
 
 DESCRIPTOR.services_by_name['ExerciseImagePredict'] = _EXERCISEIMAGEPREDICT
 
-
 _EXERCISEVIDEOPREDICT = _descriptor.ServiceDescriptor(
-  name='ExerciseVideoPredict',
-  full_name='ExerciseVideoPredict',
-  file=DESCRIPTOR,
-  index=1,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=253,
-  serialized_end=327,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='VideoInference',
-    full_name='ExerciseVideoPredict.VideoInference',
-    index=0,
-    containing_service=None,
-    input_type=_PARAM2REQUEST,
-    output_type=_PARAM1REQUEST,
+    name='ExerciseVideoPredict',
+    full_name='ExerciseVideoPredict',
+    file=DESCRIPTOR,
+    index=1,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-  ),
-])
+    serialized_start=253,
+    serialized_end=327,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='VideoInference',
+            full_name='ExerciseVideoPredict.VideoInference',
+            index=0,
+            containing_service=None,
+            input_type=_PARAM2REQUEST,
+            output_type=_PARAM1REQUEST,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_EXERCISEVIDEOPREDICT)
 
 DESCRIPTOR.services_by_name['ExerciseVideoPredict'] = _EXERCISEVIDEOPREDICT
 
-
 _UPDATEDATACONFIG = _descriptor.ServiceDescriptor(
-  name='UpdateDataConfig',
-  full_name='UpdateDataConfig',
-  file=DESCRIPTOR,
-  index=2,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=329,
-  serialized_end=397,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='UpdateConfig',
-    full_name='UpdateDataConfig.UpdateConfig',
-    index=0,
-    containing_service=None,
-    input_type=_PARAM1REQUEST,
-    output_type=_PARAM1REQUEST,
+    name='UpdateDataConfig',
+    full_name='UpdateDataConfig',
+    file=DESCRIPTOR,
+    index=2,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-  ),
-])
+    serialized_start=329,
+    serialized_end=397,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='UpdateConfig',
+            full_name='UpdateDataConfig.UpdateConfig',
+            index=0,
+            containing_service=None,
+            input_type=_PARAM1REQUEST,
+            output_type=_PARAM1REQUEST,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_UPDATEDATACONFIG)
 
 DESCRIPTOR.services_by_name['UpdateDataConfig'] = _UPDATEDATACONFIG

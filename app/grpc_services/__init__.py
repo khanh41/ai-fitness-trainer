@@ -19,7 +19,7 @@ def pose_predict_inference(exercise_code, exercise_name, image):
 
     # make the call
     response = _image_inference_stub.ImageInference(data)
-    return response.param_1
+    return response.param_1, response.param_2
 
 
 def pose_predict_video_inference(exercise_name, video_path):
