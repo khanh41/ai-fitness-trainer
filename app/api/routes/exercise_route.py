@@ -84,8 +84,11 @@ async def get_exercise_by_name(name):
 async def predict_form(exercise_code: str, exercise_name: str, file: UploadFile = File(...)):
     try:
         contents = await file.read()
-        base64_img = exercise_service.exercise_predict(exercise_code, exercise_name, contents)
-        response.base_response["data"] = base64_img
+        base64_img, score = exercise_service.exercise_predict(exercise_code, exercise_name, contents)
+        response.base_response["data"] = {
+            "image": base64_img,
+            "score": int(float(score))
+        }
         return response.base_response
     except Exception as e:
         return response.error_response(str(e), 500)

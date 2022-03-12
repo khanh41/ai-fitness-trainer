@@ -15,10 +15,10 @@ class ExerciseImagePredictStub(object):
             channel: A grpc.Channel.
         """
         self.ImageInference = channel.unary_unary(
-                '/ExerciseImagePredict/ImageInference',
-                request_serializer=ops_dot_grpc_dot_infer__pb2.Param3Request.SerializeToString,
-                response_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
-                )
+            '/ExerciseImagePredict/ImageInference',
+            request_serializer=ops_dot_grpc_dot_infer__pb2.Param3Request.SerializeToString,
+            response_deserializer=ops_dot_grpc_dot_infer__pb2.Param2Request.FromString,
+        )
 
 
 class ExerciseImagePredictServicer(object):
@@ -33,37 +33,37 @@ class ExerciseImagePredictServicer(object):
 
 def add_ExerciseImagePredictServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'ImageInference': grpc.unary_unary_rpc_method_handler(
-                    servicer.ImageInference,
-                    request_deserializer=ops_dot_grpc_dot_infer__pb2.Param3Request.FromString,
-                    response_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
-            ),
+        'ImageInference': grpc.unary_unary_rpc_method_handler(
+            servicer.ImageInference,
+            request_deserializer=ops_dot_grpc_dot_infer__pb2.Param3Request.FromString,
+            response_serializer=ops_dot_grpc_dot_infer__pb2.Param2Request.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ExerciseImagePredict', rpc_method_handlers)
+        'ExerciseImagePredict', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
- # This class is part of an EXPERIMENTAL API.
+# This class is part of an EXPERIMENTAL API.
 class ExerciseImagePredict(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def ImageInference(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
+                       target,
+                       options=(),
+                       channel_credentials=None,
+                       call_credentials=None,
+                       insecure=False,
+                       compression=None,
+                       wait_for_ready=None,
+                       timeout=None,
+                       metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ExerciseImagePredict/ImageInference',
-            ops_dot_grpc_dot_infer__pb2.Param3Request.SerializeToString,
-            ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+                                             ops_dot_grpc_dot_infer__pb2.Param3Request.SerializeToString,
+                                             ops_dot_grpc_dot_infer__pb2.Param2Request.FromString,
+                                             options, channel_credentials,
+                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class ExerciseVideoPredictStub(object):
@@ -76,10 +76,10 @@ class ExerciseVideoPredictStub(object):
             channel: A grpc.Channel.
         """
         self.VideoInference = channel.unary_unary(
-                '/ExerciseVideoPredict/VideoInference',
-                request_serializer=ops_dot_grpc_dot_infer__pb2.Param2Request.SerializeToString,
-                response_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
-                )
+            '/ExerciseVideoPredict/VideoInference',
+            request_serializer=ops_dot_grpc_dot_infer__pb2.Param2Request.SerializeToString,
+            response_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+        )
 
 
 class ExerciseVideoPredictServicer(object):
@@ -94,37 +94,37 @@ class ExerciseVideoPredictServicer(object):
 
 def add_ExerciseVideoPredictServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'VideoInference': grpc.unary_unary_rpc_method_handler(
-                    servicer.VideoInference,
-                    request_deserializer=ops_dot_grpc_dot_infer__pb2.Param2Request.FromString,
-                    response_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
-            ),
+        'VideoInference': grpc.unary_unary_rpc_method_handler(
+            servicer.VideoInference,
+            request_deserializer=ops_dot_grpc_dot_infer__pb2.Param2Request.FromString,
+            response_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ExerciseVideoPredict', rpc_method_handlers)
+        'ExerciseVideoPredict', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
- # This class is part of an EXPERIMENTAL API.
+# This class is part of an EXPERIMENTAL API.
 class ExerciseVideoPredict(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def VideoInference(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
+                       target,
+                       options=(),
+                       channel_credentials=None,
+                       call_credentials=None,
+                       insecure=False,
+                       compression=None,
+                       wait_for_ready=None,
+                       timeout=None,
+                       metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ExerciseVideoPredict/VideoInference',
-            ops_dot_grpc_dot_infer__pb2.Param2Request.SerializeToString,
-            ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+                                             ops_dot_grpc_dot_infer__pb2.Param2Request.SerializeToString,
+                                             ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+                                             options, channel_credentials,
+                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class UpdateDataConfigStub(object):
@@ -137,10 +137,10 @@ class UpdateDataConfigStub(object):
             channel: A grpc.Channel.
         """
         self.UpdateConfig = channel.unary_unary(
-                '/UpdateDataConfig/UpdateConfig',
-                request_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
-                response_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
-                )
+            '/UpdateDataConfig/UpdateConfig',
+            request_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
+            response_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+        )
 
 
 class UpdateDataConfigServicer(object):
@@ -155,34 +155,34 @@ class UpdateDataConfigServicer(object):
 
 def add_UpdateDataConfigServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'UpdateConfig': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateConfig,
-                    request_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
-                    response_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
-            ),
+        'UpdateConfig': grpc.unary_unary_rpc_method_handler(
+            servicer.UpdateConfig,
+            request_deserializer=ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+            response_serializer=ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'UpdateDataConfig', rpc_method_handlers)
+        'UpdateDataConfig', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
- # This class is part of an EXPERIMENTAL API.
+# This class is part of an EXPERIMENTAL API.
 class UpdateDataConfig(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def UpdateConfig(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
+                     target,
+                     options=(),
+                     channel_credentials=None,
+                     call_credentials=None,
+                     insecure=False,
+                     compression=None,
+                     wait_for_ready=None,
+                     timeout=None,
+                     metadata=None):
         return grpc.experimental.unary_unary(request, target, '/UpdateDataConfig/UpdateConfig',
-            ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
-            ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+                                             ops_dot_grpc_dot_infer__pb2.Param1Request.SerializeToString,
+                                             ops_dot_grpc_dot_infer__pb2.Param1Request.FromString,
+                                             options, channel_credentials,
+                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
