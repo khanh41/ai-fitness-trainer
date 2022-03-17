@@ -8,12 +8,12 @@ from app.grpc_services import pose_predict_inference, pose_predict_video_inferen
 
 def exercise_predict(exercise_code, exercise_name, user_image):
     user_image = read_image_byte(user_image)
-    user_predict = pose_predict_inference(exercise_code, exercise_name, user_image)
-    
-    # image_name = str(uuid.uuid4()) + ".jpg"
-    # save_image_to_firebase_storage(user_predict, image_name)
+    base64image, score = pose_predict_inference(exercise_code, exercise_name, user_image)
 
-    return user_predict
+    image_name = str(uuid.uuid4()) + ".jpg"
+    save_image_to_firebase_storage(base64image, image_name)
+
+    return image_name[:-4], score
 
 
 def exercise_predict_video(exercise_name, user_video):
@@ -26,4 +26,3 @@ def exercise_predict_video(exercise_name, user_video):
 
 def save_image_to_firebase_storage(image, save_path: str):
     upload_file_google_storage(image, save_path)
-
