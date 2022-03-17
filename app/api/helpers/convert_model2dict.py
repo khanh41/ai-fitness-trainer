@@ -14,7 +14,7 @@ def exercise_helper(data) -> dict:
 def user_information_helper(data) -> dict:
     return {
         "id": str(data["_id"]),
-        "name": data["timePredict"],
+        "name": data["name"],
         "email": data["email"],
         "phoneNumber": data["phoneNumber"],
         "weight": data["weight"],

@@ -2,6 +2,8 @@ import datetime
 
 from bson.objectid import ObjectId
 
+from app.api.database.models.user_information import UserInformationSchema
+
 
 class BaseExecute(object):
     def __init__(self, data_collection, data_helper):
@@ -30,16 +32,16 @@ class BaseExecute(object):
             return self.data_helper(data)
 
     # Update a data with a matching ID
-    def update_data(self, id: str, data: dict):
+    def update_data(self, id: str, new_data: dict):
         # Return false if an empty request body is sent.
-        if len(data) < 1:
+        if len(new_data) < 1:
             return False
 
-        data['updateAt'] = datetime.datetime.now()
+        new_data['updateAt'] = datetime.datetime.now()
         data = self.data_collection.find_one({"_id": ObjectId(id)})
         if data:
             updated_data = self.data_collection.update_one(
-                {"_id": ObjectId(id)}, {"$set": data}
+                {"_id": ObjectId(id)}, {"$set": new_data}
             )
             if updated_data:
                 return True
