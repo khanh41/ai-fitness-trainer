@@ -16,7 +16,7 @@ class BaseResponse:
         return JSONResponse(
             status_code=status_code,
             content={
-                "status": "failed",
+                "status": "success",
                 "status_code": status_code,
                 "message": message,
             })
